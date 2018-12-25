@@ -5,7 +5,7 @@
 
 #### CREATE REGISTRY
     docker pull registry
-    docker run -d -v /opt/registry:/var/lib/registry -p 5000:5000 --restart=always registry
+    docker run -d -v /opt/registry:/var/lib/registry -p 5100:5000 --restart=always registry
 
 #### CHECK REPOSITORY
     curl http://your_ip:your_port/v2/_catalog
@@ -64,3 +64,6 @@
 #### STOP CONTAINER
     > docker stop container_name
     > docker container stop container_name
+
+#### CLEAN
+    > docker rmi $(sudo docker images --filter "dangling=true" -q --no-trunc) -f
